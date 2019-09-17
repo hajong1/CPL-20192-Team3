@@ -44,17 +44,17 @@ Step 3. CMake를 이용하여 Makefile 생성
 $ mkdir build && cd build
 
 ### Run CMake
-$ cmake \\
--D CMAKE_BUILD_TYPE=Release \\
--D CMAKE_INSTALL_PREFIX=/usr/local \\
--D BUILD_WITH_DEBUG_INFO=OFF \\
--D BUILD_EXAMPLES=ON \\
--D BUILD_opencv_python2=OFF \\
--D BUILD_opencv_python3=ON \\
--D INSTALL_PYTHON_EXAMPLES=ON \\
--D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.4.0/modules \\
--D WITH_TBB=ON \\
--D WITH_V4L=ON \\
+$ cmake \\<br>
+-D CMAKE_BUILD_TYPE=Release \\<br>
+-D CMAKE_INSTALL_PREFIX=/usr/local \\<br>
+-D BUILD_WITH_DEBUG_INFO=OFF \\<br>
+-D BUILD_EXAMPLES=ON \\<br>
+-D BUILD_opencv_python2=OFF \\<br>
+-D BUILD_opencv_python3=ON \\<br>
+-D INSTALL_PYTHON_EXAMPLES=ON \\<br>
+-D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.4.0/modules \\<br>
+-D WITH_TBB=ON \\<br>
+-D WITH_V4L=ON \\<br>
 ../opencv-3.4.0/ 2>&1 | tee cmake_messages.txt<br>
 <br>
 <br>
