@@ -30,12 +30,11 @@ message(STATUS "Found OPENGL in ${OPENGL_LIBRARY}")
 find_package( glm REQUIRED )
 message(STATUS "GLM included at ${GLM_INCLUDE_DIRS}")
 
-set(stb ../../stb)
+set(stb ../libs/stb_190703)
 
-set(gl3w ../gl3w_190703)
-set(imgui ../imgui_190703)
+set(gl3w ../libs/gl3w_190703)
+set(imgui ../libs/imgui_190703)
 set(SyeCommon ../../SyeCommon)
-set(EyeRpi ../EyeRpi/src)
 
 INCLUDE_DIRECTORIES(
 	${OPENGL_INCLUDE_DIR}
