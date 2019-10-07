@@ -20,12 +20,8 @@ find_package( Boost REQUIRED )
 message(STATUS "Found Boost include in ${Boost_INCLUDE_DIRS}")
 message(STATUS "Found Boost library in ${Boost_LIBRARY_DIRS}")
 
-#find_package( visp REQUIRED )
-#message(STATUS "Found VISP in ${VISP_INCLUDE_DIRS}")
-#message(STATUS "Found VISP in ${VISP_LIBRARIES}")
-
-#message(STATUS "Found GLFW3 in ${GLFW_INCLUDE_DIRS}")
-#message(STATUS "Found GLFW3 in ${GLFW3_LIBRARY}")
+message(STATUS "Found GLFW3 in ${GLFW_INCLUDE_DIRS}")
+message(STATUS "Found GLFW3 in ${GLFW_LIBRARY}")
 
 find_package( OpenGL REQUIRED )
 message(STATUS "Found OPENGL in ${OPENGL_INCLUDE_DIR}")
@@ -35,8 +31,9 @@ find_package( glm REQUIRED )
 message(STATUS "GLM included at ${GLM_INCLUDE_DIRS}")
 
 set(stb ../../stb)
-set(gl3w ../../gl3w/build)
-set(imgui ../../imgui)
+
+set(gl3w ../gl3w_190703)
+set(imgui ../imgui_190703)
 set(SyeCommon ../../SyeCommon)
 set(EyeRpi ../EyeRpi/src)
 
