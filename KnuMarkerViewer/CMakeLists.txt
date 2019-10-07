@@ -1,23 +1,18 @@
 cmake_minimum_required(VERSION 3.0)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
-set(ProjName gui)
+set(ProjName viewer)
 PROJECT(${ProjName})
 
-#set(EyeSimulator_Version_Major 0)
-#set(EyeSimulator_Version_Minor 1)
 
 set (CMAKE_CXX_STANDARD 11)
 #set (CMAKE_CXX_STANDARD 17)
 #set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
-#find_package( PkgConfig REQUIRED )
-
 find_package( Threads REQUIRED )
 find_package( OpenCV REQUIRED )
 find_package( glfw3 REQUIRED )
 find_package( assimp REQUIRED )
-find_package( lua REQUIRED )
 
 message(STATUS "Found Assimp library in ${ASSIMP_LIBRARIES}")
 
@@ -45,10 +40,6 @@ set(imgui ../../imgui)
 set(SyeCommon ../../SyeCommon)
 set(EyeRpi ../EyeRpi/src)
 
-#set(EyeCommonPath ../EyeCommon)
-#set(MspPath ../Msp)
-#set(PtammPath ../ptamm)
-
 INCLUDE_DIRECTORIES(
 	${OPENGL_INCLUDE_DIR}
 	${GLM_INCLUDE_DIRS}
@@ -57,24 +48,7 @@ INCLUDE_DIRECTORIES(
 	${imgui}
 	${imgui}/examples
 	${SyeCommon}
-	${EyeRpi}
-	#${learnOpenGL}
-	#${ShareCode}
-	#${CommonPath}
-   	#${EyeCommonPath}
-    #${MspPath}
 )
-
-LINK_DIRECTORIES(
-#${glad}
-)
-
-#set(BUILD_STATIC_LIB ON)
-#set(BUILD_ASSIMP_TOOLS  ON)
-#set(ASSIMP_BUILD_STATIC_LIB ON)
-
-#INCLUDE_DIRECTORIES(${PtammPath})
-#INCLUDE_DIRECTORIES("/usr/include/lua5.2")
 
 add_definitions("-Wall" "-g")
 
@@ -87,7 +61,6 @@ file(GLOB SOURCES
 	${SyeCommon}/entity/*.cpp
 	${SyeCommon}/opencv/*.cpp
 	${SyeCommon}/opengl/*.cpp
-	${SyeCommon}/lua/*
 	${EyeRpi}/eyeKernel.cpp
 	./src/*
 )
@@ -121,8 +94,6 @@ if(assimp_FOUND)
 	message("	Found ASSIMP Package. [${ASSIMP_LIBRARIES}]")
 	message("	Found ASSIMP Package. [${assimp_LIBRARIES}]")
 	message("	link_directories(${CMAKE_SOURCE_DIR}/lib)")
-#message("		Found ASSIMP Package. [${ASSIMP_STATIC_LIB}]")
-#message("		Found ASSIMP Package. [${OpenCV_LIBS}]")
 endif(assimp_FOUND)
 
 link_directories(${CMAKE_SOURCE_DIR}/lib)
@@ -131,12 +102,9 @@ target_link_libraries(
 	${ProjName} 
 	${CMAKE_THREAD_LIBS_INIT}
 	${EXTRA_LIBS}
-#${Boost_LIBRARY_DIRS}
 	${OpenCV_LIBS} 
 	${assimp_LIBRARIES}
-	${LUA_LIBRARIES}
 	pthread
 	dl
 	glfw
-#glad
 )
