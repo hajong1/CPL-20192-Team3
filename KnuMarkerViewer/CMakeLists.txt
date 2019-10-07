@@ -16,10 +16,6 @@ find_package( assimp REQUIRED )
 
 message(STATUS "Found Assimp library in ${ASSIMP_LIBRARIES}")
 
-find_package( Boost REQUIRED )
-message(STATUS "Found Boost include in ${Boost_INCLUDE_DIRS}")
-message(STATUS "Found Boost library in ${Boost_LIBRARY_DIRS}")
-
 message(STATUS "Found GLFW3 in ${GLFW_INCLUDE_DIRS}")
 message(STATUS "Found GLFW3 in ${GLFW_LIBRARY}")
 
@@ -30,11 +26,11 @@ message(STATUS "Found OPENGL in ${OPENGL_LIBRARY}")
 find_package( glm REQUIRED )
 message(STATUS "GLM included at ${GLM_INCLUDE_DIRS}")
 
+set(imgui ../libs/imgui_190703)
+set(gl3w ../libs/gl3w_190703)
 set(stb ../libs/stb_190703)
 
-set(gl3w ../libs/gl3w_190703)
-set(imgui ../libs/imgui_190703)
-set(SyeCommon ../../SyeCommon)
+#set(SyeCommon ../../SyeCommon)
 
 INCLUDE_DIRECTORIES(
 	${OPENGL_INCLUDE_DIR}
@@ -43,7 +39,6 @@ INCLUDE_DIRECTORIES(
 	${gl3w}/include
 	${imgui}
 	${imgui}/examples
-	${SyeCommon}
 )
 
 add_definitions("-Wall" "-g")
@@ -53,11 +48,6 @@ file(GLOB SOURCES
 	${imgui}/*.cpp
 	${imgui}/examples/imgui_impl_glfw.cpp
 	${imgui}/examples/imgui_impl_opengl3.cpp
-	${SyeCommon}/misc/*.cpp
-	${SyeCommon}/entity/*.cpp
-	${SyeCommon}/opencv/*.cpp
-	${SyeCommon}/opengl/*.cpp
-	${EyeRpi}/eyeKernel.cpp
 	./src/*
 )
 
