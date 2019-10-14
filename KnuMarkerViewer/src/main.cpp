@@ -37,6 +37,7 @@
 
 #include <stdio.h>
 
+#include "yeAssimp.h"
 #include "knuCamera.h"
 #include "knuGlModel.h"
 
@@ -139,6 +140,14 @@ int main(int, char**)
     bool show_another_window = false;
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
+	////////////////////////////////////////////////////////////////////////////////////////////////
+
+	KCvCamera cvCam;
+	KGlCamera glCam;
+
+	//SYE::Shader shader1;
+
+
     // Main loop
     while (!glfwWindowShouldClose(window))
     {
@@ -197,7 +206,16 @@ int main(int, char**)
         glfwGetFramebufferSize(window, &display_w, &display_h);
         glViewport(0, 0, display_w, display_h);
         glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		// Rendering Back-Ground scene. ////////////////////////////////////////////////////////////
+
+
+
+
+
+		////////////////////////////////////////////////////////////////////////////////////////////
+
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     	
         // Update and Render additional Platform Windows

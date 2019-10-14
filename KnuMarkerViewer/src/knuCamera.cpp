@@ -1,1 +1,16 @@
 #include "knuCamera.h"
+
+KCvCamera::KCvCamera() {
+}
+
+KCvCamera::~KCvCamera() {
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+KGlCamera::KGlCamera() {
+}
+
+KGlCamera::~KGlCamera() {
+}
+
