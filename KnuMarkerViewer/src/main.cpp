@@ -146,7 +146,9 @@ int main(int, char**)
 	KGlCamera glCam;
 	glm::mat4 matView;
 
-	//SYE::Shader shader1;
+	SYE::Shader shaderGrid("../shader/grid.vs", "../shader/grid.fs");
+	SYE::Shader shaderTriangle("../shader/sample.vertex","../shader/sample.fragment");
+
 	if(!cvCam.init(0)) {
 	}
 
