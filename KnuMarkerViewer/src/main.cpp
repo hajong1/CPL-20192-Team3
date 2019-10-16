@@ -144,9 +144,11 @@ int main(int, char**)
 
 	KCvCamera cvCam;
 	KGlCamera glCam;
+	glm::mat4 matView;
 
 	//SYE::Shader shader1;
-
+	if(!cvCam.init(0)) {
+	}
 
     // Main loop
     while (!glfwWindowShouldClose(window))
@@ -211,7 +213,12 @@ int main(int, char**)
 		// Rendering Back-Ground scene. ////////////////////////////////////////////////////////////
 
 
+		if(cvCam.isOpened() && cvCamMarkerPose(5, matView)) {
+		} else {
+			// Set default view projection matrix.
+		}
 
+		// Set opencv camera pose to Shader.
 
 
 		////////////////////////////////////////////////////////////////////////////////////////////
@@ -231,6 +238,8 @@ int main(int, char**)
 
         glfwSwapBuffers(window);
     }
+
+	cvCam.close();
 
     // Cleanup
     ImGui_ImplOpenGL3_Shutdown();
