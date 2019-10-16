@@ -213,7 +213,7 @@ int main(int, char**)
 		// Rendering Back-Ground scene. ////////////////////////////////////////////////////////////
 
 
-		if(cvCam.isOpened() && cvCamMarkerPose(5, matView)) {
+		if(cvCam.isOpened() && cvCam.getMarkerPose(5, matView)) {
 		} else {
 			// Set default view projection matrix.
 		}
