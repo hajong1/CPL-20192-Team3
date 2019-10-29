@@ -9,7 +9,7 @@ KCvCamera::~KCvCamera() {
 void KCvCamera::close() {
 }
 
-bool KCvCamera::init(int camNum) {
+bool KCvCamera::init(int camNum, bool bThreadMode) {
 	return false;
 }
 

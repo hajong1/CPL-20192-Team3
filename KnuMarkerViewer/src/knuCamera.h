@@ -13,7 +13,7 @@ class KCvCamera {
 		KCvCamera();
 		virtual ~KCvCamera();
 
-		bool init(int camNum);
+		bool init(int camNum, bool bThreadMode = false);
 		void close();
 		bool isOpened() { return mCapture.isOpened(); }
 		bool getMarkerPose(int markId, glm::mat4 &camPose);
