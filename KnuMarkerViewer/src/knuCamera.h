@@ -9,6 +9,8 @@ class KCvCamera {
 		cv::VideoCapture mCapture;
 		glm::mat4 mCamPose;
 	protected:
+		bool getCamImage(cv::Mat &img);
+		bool getArucoRTVectors(cv::Mat img, cv::Mat &tvec, cv::Mat &rvec);
 	public:
 		KCvCamera();
 		virtual ~KCvCamera();
