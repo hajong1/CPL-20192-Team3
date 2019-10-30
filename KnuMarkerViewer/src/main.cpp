@@ -153,6 +153,9 @@ int main(int, char**) {
 	KOglObject objTriangle;
 	objTriangle.initialize(&shaderTriangle, KObjTriangle);
 
+	cv::Mat imgShow;
+	unsigned int uiCamImgId = 0;
+	glGenTextures(1, &uiCamImgId);
 
 	//if(!cvCam.init(0, true)) {		// Thread mode 로 사용하려면 뒤에 true 추가함.
 	if(!cvCam.init(0)) {
@@ -196,6 +199,11 @@ int main(int, char**) {
 			ImGui::Text("counter = %d", counter);
 
 			ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+
+			if(!imgShow.empty()) {
+				ImGui::Image((void *)(intptr_t)uiCamImgId, ImVec2(imgShow.cols, imgShow.rows));
+			}
+
 			ImGui::End();
 		}
 
@@ -209,7 +217,8 @@ int main(int, char**) {
 		}
 
 		// Set opengl view projection matrix.
-		if(cvCam.isOpened() && cvCam.getMarkerPose(5, matView)) {
+
+		if(cvCam.isOpened() && cvCam.getMarkerPose(5, matView, imgShow)) {
 		} else {
 			// Set default view projection matrix.
 			matView = glm::mat4(1.0f);
