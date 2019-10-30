@@ -93,6 +93,10 @@ void KOglGrid::render(glm::mat4 view, glm::mat4 proj) {
 		pShader->setMat4("view", view);
 		pShader->setMat4("projection", proj);
 		pShader->setMat4("model", mMatModel);
+
+		glBindVertexArray(VAO);
+		glDrawArrays(GL_LINES, 0, vertices.size());
+		//printf("-----------[%lu]\n", vertices.size());
 	}
 }
 

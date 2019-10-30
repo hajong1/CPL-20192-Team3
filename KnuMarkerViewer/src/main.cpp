@@ -131,7 +131,8 @@ int main(int, char**) {
 	//IM_ASSERT(font != NULL);
 
 	// Our state
-	bool show_demo_window = true;
+	//bool show_demo_window = true;
+	bool show_demo_window = false;
 	bool show_another_window = false;
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
@@ -148,8 +149,9 @@ int main(int, char**) {
 
 	// 사용할 Opengl object들을 생성.
 	KOglGrid objGrid(&shaderGrid);
+
 	KOglObject objTriangle;
-	objTriangle.initialize(&shaderGrid, KObjTriangle);
+	objTriangle.initialize(&shaderTriangle, KObjTriangle);
 
 
 	//if(!cvCam.init(0, true)) {		// Thread mode 로 사용하려면 뒤에 true 추가함.
@@ -210,6 +212,8 @@ int main(int, char**) {
 		if(cvCam.isOpened() && cvCam.getMarkerPose(5, matView)) {
 		} else {
 			// Set default view projection matrix.
+			matView = glm::mat4(1.0f);
+			matView[3][2] = -100.0f;
 		}
 
 		// Rendering
@@ -229,7 +233,6 @@ int main(int, char**) {
 
 		// Rendering Opengl objects. 	////////////////////////////////////////////////////////////
 		objTriangle.render(matView, matProj);
-
 
 		////////////////////////////////////////////////////////////////////////////////////////////
 

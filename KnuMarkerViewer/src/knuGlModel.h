@@ -16,7 +16,7 @@ class KOglBase {
 	private:
 	protected:
 		GLuint VAO, VBO;
-		glm::mat4 mMatModel = glm::mat4(0.0f);	//초기 위치(Model viewer matrix)
+		glm::mat4 mMatModel = glm::mat4(1.0f);	//초기 위치(Model viewer matrix)
 		SYE::Shader *pShader;
 		std::vector<SYE::Vertex> vertices;
 		void setVAO();
