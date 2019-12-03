@@ -1,8 +1,10 @@
-# vision-based-localization
+# 종합프로젝트2 - TEAM3  
+## vision-based-localization
 OS : Ubuntu 18.04.3 LTS  
 OpenCV version : 4.1.1  
 OpenGL version : 4.3  
 
+: https://github.com/SeaRealE/vision-based-localization  
 비전 기반 카메라 위치 추출 및 openGL 연동
 
 <img src="./img/result_object.gif" width="60%">
